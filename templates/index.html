@@ -1,0 +1,259 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>自然素養判讀</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+{{reading_css}}
+.findings{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.findings li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.findings .no{font-family:"LXGW WenKai TC",serif;font-size:26px;color:var(--accent);line-height:1.2}
+.findings b{display:block;font-size:16.5px}
+.findings p{color:var(--ink-2);font-size:14.5px}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;font-weight:700;text-decoration:none;padding:9px 16px;border-radius:6px;background:var(--ink);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.stack{display:grid;gap:12px}
+.bar-row{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center}
+.bar-row .lab{font-size:13.5px;color:var(--ink-2)}
+.bar-row .lab small{display:block;font-size:12px;color:var(--ink-3)}
+.bar{display:flex;height:30px;border-radius:4px;overflow:hidden;background:var(--rule-2)}
+.bar span{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;min-width:0;overflow:hidden;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink-2)}
+.legend .lv{font-weight:500}
+.grid-skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.skill{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:6px;padding:16px;display:grid;gap:10px;align-content:start}
+.skill .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.skill .code{font-size:12.5px;color:var(--ink-3);font-weight:700}
+.skill .cnt{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.skill p{font-size:14px;color:var(--ink-2)}
+.skill h4{margin:0;font-size:13px;color:var(--ink-3);letter-spacing:.06em}
+.skill ol,.skill ul{margin:0;padding-left:1.3em;font-size:14px;display:grid;gap:3px}
+.skill .ex{font-size:13.5px}
+.skill .ex a{display:block;text-decoration:none;color:var(--ink);padding:3px 0;border-top:1px dashed var(--rule)}
+.skill .ex a:hover{color:var(--accent)}
+.skill .ex small{color:var(--ink-3)}
+.traps{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.trap{background:var(--surface);border:1px dashed var(--ink-3);border-radius:6px;padding:14px 16px;display:grid;gap:6px;align-content:start}
+.trap.solid{border-style:solid;border-color:var(--rule)}
+.trap .top{display:flex;justify-content:space-between;gap:8px}
+.trap .top span{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.trap p{font-size:14px;color:var(--ink-2)}
+.trap a{font-size:13.5px}
+.heat td.h{text-align:center;font-variant-numeric:tabular-nums;font-size:13px;min-width:44px}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+.steps li::before{content:counter(s);font-family:"LXGW WenKai TC",serif;font-size:22px;color:var(--accent);line-height:1.2}
+.steps b{display:block}
+.steps p{font-size:14px;color:var(--ink-2)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.four{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:14px}
+.box{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;display:grid;gap:8px;align-content:start}
+.box ul{margin:0;padding-left:1.2em;font-size:14.5px;display:grid;gap:4px}
+.box p{font-size:14px}
+.method{font-size:14px;color:var(--ink-2);display:grid;gap:8px;max-width:76ch}
+@media (max-width:820px){.three{grid-template-columns:1fr}}
+@media (max-width:640px){.bar-row{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">會考自然 111–115 年 · 學測自然 107–115 年 · 分科物理、化學、生物 107–115 年 · 共 1,753 題</div>
+  <h1>自然素養判讀</h1>
+  <p class="lede">把會考自然、學測自然與分科（含 110 年以前指考）物理、化學、生物的每一題，依 PISA 科學素養標上「考哪一種能力」「給了哪一種資料」「最容易掉進哪一種陷阱」，並附一句判讀與答題提示。</p>
+  <div class="cta"><a class="btn" href="bank/">進入判讀題庫 →</a><a class="btn" href="practice/">隨機練習 10 題 →</a><a class="btn ghost" href="science/">會考自然命題分析</a><a class="btn ghost" href="xuece-sci/">學測自然命題分析</a><a class="btn ghost" href="xuece-earth/">學測地球科學</a><a class="btn ghost" href="xuece-phy/">分科物理</a><a class="btn ghost" href="xuece-chem/">分科化學</a><a class="btn ghost" href="xuece-bio/">分科生物</a></div>
+  <p class="meta">資料來源：國中教育會考、大考中心公布之試題與答案｜能力、資料類型與陷阱分類為本站逐題判讀，並非官方分類｜整理日期：2026-09-30</p>
+</header>
+<nav class="toc" aria-label="本頁目錄"><a href="practice/">練習卷</a><a href="#find">重點發現</a><a href="#frame">能力框架</a><a href="#dist">能力分布</a><a href="#subj">四科特色</a><a href="#skills">各能力答題方法</a><a href="#src">資料類型</a><a href="#errs">常見陷阱</a><a href="#bridge">會考到學測、分科</a><a href="#method">資料與方法</a></nav>
+
+<section id="find">
+  <div class="sec-head"><span class="kicker">FINDINGS</span><h2>五個重點發現</h2></div>
+  <ol class="findings" id="findings"></ol>
+</section>
+
+<section id="frame">
+  <div class="sec-head"><span class="kicker">FRAMEWORK</span><h2>能力框架</h2><p>PISA 把科學素養分成三種能力：解釋現象、評估與設計探究、詮釋數據與證據。本站再加上「知識辨識」，用來標示直接考名詞、定義與事實的題目。</p></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>能力</th><th>在考什麼</th><th class="n">會考</th><th class="n">學測</th><th class="n">分科</th></tr></thead>
+    <tbody id="frameBody"></tbody>
+  </table></div>
+</section>
+
+<section id="dist">
+  <div class="sec-head"><span class="kicker">DISTRIBUTION</span><h2>能力分布：會考、學測、分科</h2><p>學測與分科以 110 年為界：107–110 年為舊課綱（分科為指考），111 年起為 108 課綱，加入混合題與非選擇題。百分比以題數計算，非選擇題也計入。</p></div>
+  <div class="legend" id="legend"></div>
+  <div class="stack" id="bars"></div>
+  <div class="tbl-wrap"><table class="heat">
+    <thead id="yearHead"></thead><tbody id="yearBody"></tbody>
+  </table></div>
+  <p class="note">表中數字為該年該能力的題數；顏色越深題數越多。分科為物理、化學、生物三科合計。</p>
+</section>
+
+<section id="subj">
+  <div class="sec-head"><span class="kicker">SUBJECTS</span><h2>物理、化學、生物、地科：四科各考什麼</h2><p>三種考試合計（地球科學只出現在會考與學測）。四科的主力能力、資料與陷阱差異很大，準備方法也不同。</p></div>
+  <div class="stack" id="subBars"></div>
+  <div class="four" id="subCards"></div>
+</section>
+
+<section id="skills">
+  <div class="sec-head"><span class="kicker">STRATEGIES</span><h2>各能力的判讀訊號與答題方法</h2><p>「判讀訊號」是題目常見的樣子，看到就知道在考哪一種能力；「常見資料」與「常見陷阱」依本站判讀統計；每張卡片附代表題。</p></div>
+  <div class="grid-skills" id="skillCards"></div>
+</section>
+
+<section id="src">
+  <div class="sec-head"><span class="kicker">SOURCES</span><h2>七種資料類型</h2><p>每一題標記題目主要給了什麼資料。先認出資料類型，就知道該怎麼讀。</p></div>
+  <div class="traps" id="stratCards"></div>
+</section>
+
+<section id="errs">
+  <div class="sec-head"><span class="kicker">TRAPS</span><h2>七種常見陷阱</h2><p>每一題標記最容易選錯的原因。解釋現象題最怕計算與單位、概念迷思，數據詮釋題最怕圖表誤讀與過度推論，探究設計題最怕變因控制。</p></div>
+  <div class="traps" id="errCards"></div>
+  <div class="tbl-wrap"><table class="heat">
+    <thead id="xHead"></thead><tbody id="xBody"></tbody>
+  </table></div>
+  <p class="note">能力 × 常見陷阱交叉表（三種考試合計）。</p>
+</section>
+
+<section id="bridge">
+  <div class="sec-head"><span class="kicker">FROM 會考 TO 學測、分科</span><h2>從會考到學測、分科：科學素養怎麼銜接</h2></div>
+  <div class="three">
+    <div class="box"><h3>會考：讀圖與探究打底</h3>
+      <ul>
+        <li>「解釋現象」與「數據詮釋」合計約八成，直接考記憶的題目很少。</li>
+        <li>「探究設計」比例是三種考試中最高的，常考變因與實驗步驟。</li>
+        <li>圖表與示意圖多，先把圖讀懂，再用概念解釋。</li>
+      </ul></div>
+    <div class="box"><h3>學測：跨科情境與數據</h3>
+      <ul>
+        <li>108 課綱後「數據詮釋」明顯增加，混合題要寫出理由或作圖。</li>
+        <li>科普文章與生活情境變多，答案常在題文裡。</li>
+        <li>物理、化學、生物、地科各占一部分，基本概念要完整。</li>
+      </ul></div>
+    <div class="box"><h3>分科：概念精準、定量推算</h3>
+      <ul>
+        <li>物理以定量推算為主，化學兼重計算與結構判讀，生物重實驗與文獻判讀。</li>
+        <li>多選題要逐項判斷，非選擇題要列式、作圖或說明實驗設計。</li>
+        <li>名詞混淆與計算單位是最常見的失分原因。</li>
+      </ul></div>
+  </div>
+  <ol class="steps">
+    <li><div><b>先看資料類型，再決定讀法</b><p>圖表先看兩軸與單位；裝置圖先標已知量；實驗描述先找三種變因（圖表誤讀、變因控制）。</p></div></li>
+    <li><div><b>用概念解釋，不靠直覺</b><p>問自己「這個現象對應哪個定律或模型」，再檢查直覺是否與概念衝突（概念迷思）。</p></div></li>
+    <li><div><b>計算前先寫單位與比例關係</b><p>先判斷正比、反比或平方關係，統一單位後再代數字（計算與單位）。</p></div></li>
+    <li><div><b>把條件圈起來</b><p>方向、正負號、初始狀態、「定溫」「定壓」「忽略阻力」等條件都會改變答案（條件遺漏）。</p></div></li>
+    <li><div><b>結論不超出數據</b><p>只說數據能支持的話；相關不等於因果，沒有測的變因不能下結論（過度推論）。</p></div></li>
+  </ol>
+</section>
+
+<section id="method">
+  <div class="sec-head"><span class="kicker">METHOD</span><h2>資料與方法</h2></div>
+  <div class="method">
+    <p>範圍：國中教育會考自然 111–115 年（每年 50 題，共 250 題）；大學學測自然 107–115 年（共 561 題）；指考與分科測驗物理、化學、生物 107–115 年（物理 234 題、化學 258 題、生物 450 題，共 942 題）。題目、答案取自官方公布的試題與答案。</p>
+    <p>分類：每一題依主要的作答能力歸入一項，並標記題目主要的資料類型與最容易選錯的陷阱。一題常同時用到多種能力，本站只取最主要的一項。會考與學測的科目沿用各年度的考點分類。這些分類與提示由本站逐題判讀，並非官方分類，建議教師使用時自行核對。</p>
+    <p>提示：判讀提示為本站自行撰寫的解題方向，不是官方解析；官方公布「送分」或有多組答案的題目，以官方公告為準；非選擇題的評分以官方公布的評分原則為準。題庫中的題目文字由試卷擷取，數學式、化學式與圖表可能不完整，請以原題圖片為準。</p>
+  </div>
+</section>
+</div>
+
+<script>
+{{reading_js}}
+const ITEMS={{reading}};
+const PS=Object.keys(SK);
+const G=[["會考自然","111–115",it=>it[0]===0],["學測・舊課綱","107–110",it=>it[0]===1&&it[1]<=110],["學測・108 課綱","111–115",it=>it[0]===1&&it[1]>=111],["分科・舊課綱（指考）","107–110",it=>it[0]===2&&it[1]<=110],["分科・108 課綱","111–115",it=>it[0]===2&&it[1]>=111]];
+const cnt=(arr,f)=>{const c={};arr.forEach(it=>{const k=f(it);c[k]=(c[k]||0)+1;});return c;};
+const pct=(a,b)=>b?Math.round((a||0)/b*100):0;
+const $=id=>document.getElementById(id);
+const bank=q=>"bank/"+q;
+const exLink=it=>bank("#q="+qid(it));
+const noOf=it=>/^\d/.test(it[2])?`第 ${it[2]} 題`:it[2];
+const topN=(c,n,skip)=>Object.entries(c).filter(([k])=>k!==skip).sort((a,b)=>b[1]-a[1]).slice(0,n);
+const SHORT={K:"知識",E:"解釋",I:"探究",D:"數據"};
+function bar(name,sub,arr){
+  const c=cnt(arr,it=>it[5]);
+  return `<div class="bar-row"><div class="lab"><b>${name}</b><small>${sub}・${arr.length} 題</small></div><div class="bar" role="img" aria-label="${name}能力分布：${PS.map(s=>`${SK[s].name} ${pct(c[s],arr.length)}%`).join("、")}">`+
+    PS.map(s=>{const p=(c[s]||0)/arr.length*100;return p?`<span title="${SK[s].name}：${c[s]} 題（${Math.round(p)}%）" style="width:${p}%;background:${skColor(s)}">${p>=8?SHORT[s]+" "+Math.round(p)+"%":""}</span>`:"";}).join("")+`</div></div>`;
+}
+
+// 能力框架表
+const byExam=[0,1,2].map(e=>cnt(ITEMS.filter(it=>it[0]===e),it=>it[5]));
+$("frameBody").innerHTML=PS.map(s=>`<tr><td><span class="lv"><i style="background:${skColor(s)}"></i><a href="${bank("#sk="+s)}">${SK[s].name}</a></span></td><td>${SK[s].desc}</td>${[0,1,2].map(e=>`<td class="n">${byExam[e][s]||0}</td>`).join("")}</tr>`).join("");
+
+// 分布長條
+$("legend").innerHTML=PS.map(s=>`<span class="lv"><i style="background:${skColor(s)}"></i>${SK[s].name}</span>`).join("");
+$("bars").innerHTML=G.map(([name,yrs,f])=>bar(name,yrs,ITEMS.filter(f))).join("");
+
+// 逐年表
+const rowsY=[...[111,112,113,114,115].map(y=>[0,y]),...[107,108,109,110,111,112,113,114,115].map(y=>[1,y]),...[107,108,109,110,111,112,113,114,115].map(y=>[2,y])];
+const maxY=Math.max(...rowsY.flatMap(([e,y])=>Object.values(cnt(ITEMS.filter(it=>it[0]===e&&it[1]===y),it=>it[5]))));
+$("yearHead").innerHTML=`<tr><th>考試</th><th>年度</th>${PS.map(s=>`<th class="n">${SK[s].name}</th>`).join("")}<th class="n">題數</th></tr>`;
+$("yearBody").innerHTML=rowsY.map(([e,y],i)=>{
+  const arr=ITEMS.filter(it=>it[0]===e&&it[1]===y), c=cnt(arr,it=>it[5]);
+  const first=i===0||rowsY[i-1][0]!==e;
+  return `<tr${first&&i?' style="border-top:2px solid var(--ink-3)"':""}><td>${first?EXAM[e]:""}</td><td class="num">${y}</td>${PS.map(s=>{const v=c[s]||0;return `<td class="h" style="background:color-mix(in srgb, ${skColor(s)} ${Math.round(v/maxY*70)}%, transparent)">${v||""}</td>`;}).join("")}<td class="n">${arr.length}</td></tr>`;
+}).join("");
+
+// 三科特色
+const sub=["P","C","B","E"].map(k=>{const a=ITEMS.filter(it=>it[12]===k);return {k,a,n:a.length,p:cnt(a,it=>it[5]),s:cnt(a,it=>it[9]),t:cnt(a,it=>it[6])};});
+$("subBars").innerHTML=sub.map(o=>bar(SUB[o.k].name,"三種考試合計",o.a)).join("");
+const SUBTIP={P:"先畫圖標出已知量，判斷用哪個定律，再列式並檢查單位。",C:"先寫出反應式或結構，分清物質類別，再依莫耳數比計算。",B:"先讀懂實驗設計與圖表，分清相近名詞，結論不要超出數據。",E:"先看圖的方位、坐標與單位，再用大氣、海洋、地質的概念解釋。"};
+$("subCards").innerHTML=sub.map(o=>{
+  const [p1]=topN(o.p,1), s2=topN(o.s,2), t2=topN(o.t,2,"T0");
+  return `<div class="box"><h3>${SUB[o.k].name}　<small class="note">${o.n} 題</small></h3><ul>
+  <li>主力能力：<b>${SK[p1[0]].name}</b> ${pct(p1[1],o.n)}%</li>
+  <li>常見資料：${s2.map(([k,v])=>`${ST[k].name} ${pct(v,o.n)}%`).join("、")}</li>
+  <li>常見陷阱：${t2.map(([k,v])=>`${TR[k].name} ${pct(v,o.n)}%`).join("、")}</li>
+  <li>${SUBTIP[o.k]}</li></ul>
+  <p><a href="${bank("#sb="+o.k)}">看全部 →</a>　<a href="practice/#sb=${o.k}">練${SUB[o.k].name} 10 題 →</a></p></div>`;
+}).join("");
+
+// 重點發現（數字由資料計算）
+const g=G.map(([n,y,f])=>{const a=ITEMS.filter(f);return {n:a.length,p:cnt(a,it=>it[5]),s:cnt(a,it=>it[9]),e:cnt(a,it=>it[6])};});
+const [hk,xo,xn,fo,fn]=g;
+const all=ITEMS.length, allT=cnt(ITEMS,it=>it[6]);
+const [P,C,B,Ea]=sub;
+const F=[
+  ["解釋現象與數據詮釋是兩大主力",`「解釋現象」在會考占 ${pct(hk.p.E,hk.n)}%、學測 108 課綱 ${pct(xn.p.E,xn.n)}%、分科 108 課綱 ${pct(fn.p.E,fn.n)}%；「數據詮釋」分別是 ${pct(hk.p.D,hk.n)}%、${pct(xn.p.D,xn.n)}%、${pct(fn.p.D,fn.n)}%。兩者合計占七成以上，靠背誦就能作答的題目是少數。`],
+  ["會考最重探究與讀圖",`會考「探究設計」占 ${pct(hk.p.I,hk.n)}%，是三種考試中最高的；直接考知識的題目只有 ${pct(hk.p.K,hk.n)}%。統計圖表與示意圖合計 ${pct((hk.s.S2||0)+(hk.s.S3||0),hk.n)}%，讀懂圖是會考自然的基本功。`],
+  ["四科各有主力",`物理有 ${pct(P.p.E,P.n)}% 是「解釋現象」，多為定量推算；化學的解釋現象（${pct(C.p.E,C.n)}%）與數據詮釋（${pct(C.p.D,C.n)}%）並重；生物以「數據詮釋」（${pct(B.p.D,B.n)}%）與「知識辨識」（${pct(B.p.K,B.n)}%）為主；地球科學的「數據詮釋」占 ${pct(Ea.p.D,Ea.n)}%。`],
+  ["108 課綱：數據詮釋與非選擇題增加",`學測的「數據詮釋」從舊課綱的 ${pct(xo.p.D,xo.n)}% 增加到 ${pct(xn.p.D,xn.n)}%；混合題帶來的非選擇題，在學測 108 課綱占 ${pct(xn.e.T0,xn.n)}%、分科 108 課綱占 ${pct(fn.e.T0,fn.n)}%，要能列式、作圖或說明理由。`],
+  ["名詞混淆最常見，物理則是計算與單位",`「名詞混淆」占全部題目的 ${pct(allT.T2,all)}%，生物高達 ${pct(B.t.T2,B.n)}%；物理最常見的是「計算與單位」（${pct(P.t.T3,P.n)}%），地球科學則是「概念迷思」（${pct(Ea.t.T1,Ea.n)}%）與「圖表誤讀」（${pct(Ea.t.T4,Ea.n)}%）。`]
+];
+$("findings").innerHTML=F.map((f,i)=>`<li><span class="no">${i+1}</span><div><b>${f[0]}</b><p>${f[1]}</p></div></li>`).join("");
+
+// 各能力卡片
+const HOW={
+  K:{sig:["題幹很短，沒有附資料","「下列何者正確」「…屬於哪一類」","考名詞定義、構造功能、科學史"],how:["先想清楚定義與關鍵特徵","相近名詞列表比較差異","多選題逐項判斷，不確定的先用刪去法"]},
+  E:{sig:["給一個現象或情境，問「原因」「結果」「大小」","需要列式計算或比較大小","「若…改變，則…如何變化」"],how:["先判斷對應哪個定律或模型","寫出比例關係，統一單位再計算","用極端情況或數量級檢查答案"]},
+  I:{sig:["描述實驗步驟、裝置或探究問題","「哪一組是對照組」「應控制哪些變因」","「下列哪個實驗可以驗證…」"],how:["先找操縱變因、應變變因、控制變因","檢查是否一次只改變一個變因","結論只能回答這個實驗能檢驗的問題"]},
+  D:{sig:["附統計圖、數據表、照片或科普文章","「根據圖表，下列敘述何者正確」","「此結果支持哪一個推論」"],how:["先讀兩軸、單位與圖例","逐項回到數據或文章核對","區分「數據顯示」與「自己推測」"]}
+};
+$("skillCards").innerHTML=PS.map(s=>{
+  const arr=ITEMS.filter(it=>it[5]===s), sc=cnt(arr,it=>it[9]), ec=cnt(arr.filter(it=>it[6]!=="T0"),it=>it[6]);
+  const topS=topN(sc,3), topE=topN(ec,2);
+  const ex=[0,1,2].map(e=>arr.filter(it=>it[0]===e).slice(-1)[0]).filter(Boolean);
+  return `<article class="skill" style="--c:${skColor(s)}"><div class="top"><div><span class="code">${s}</span><h3>${SK[s].name}</h3></div><span class="cnt">${arr.length} 題</span></div>
+  <p>${SK[s].desc}</p>
+  <h4>判讀訊號</h4><ul>${HOW[s].sig.map(x=>`<li>${x}</li>`).join("")}</ul>
+  <h4>答題方法</h4><ol>${HOW[s].how.map(x=>`<li>${x}</li>`).join("")}</ol>
+  <h4>常見資料</h4><p>${topS.map(([k,v])=>`<span class="chip">${ST[k].name}</span> ${v}`).join("　")}</p>
+  <h4>常見陷阱</h4><p>${topE.map(([k,v])=>`<span class="chip tr">${TR[k].name}</span> ${v}`).join("　")}</p>
+  <h4>代表題</h4><div class="ex">${ex.map(it=>`<a href="${exLink(it)}">${EXAM[it[0]]} ${it[1]} 年 ${esc(noOf(it))}　${esc(it[3])}<br><small>${esc(it[7])}</small></a>`).join("")}</div>
+  <p><a href="${bank("#sk="+s)}">看全部 ${arr.length} 題 →</a>　<a href="practice/#sk=${s}">練這個能力 10 題 →</a></p></article>`;
+}).join("");
+
+// 資料類型卡片
+$("stratCards").innerHTML=STS.map(k=>{
+  const arr=ITEMS.filter(it=>it[9]===k), c=[0,1,2].map(e=>arr.filter(it=>it[0]===e).length), ex=arr.slice(-1)[0];
+  return `<div class="trap solid"><div class="top"><h3>${ST[k].name}</h3><span>${arr.length} 題</span></div><p>${ST[k].tip}</p><p class="note">會考 ${c[0]}・學測 ${c[1]}・分科 ${c[2]}</p>${ex?`<a href="${exLink(ex)}">例：${EXAM[ex[0]]} ${ex[1]} 年 ${esc(noOf(ex))}　${esc(ex[3])}</a>`:""}<a href="${bank("#st="+k)}">看全部 →</a><a href="practice/#st=${k}">練這種資料 10 題 →</a></div>`;
+}).join("");
+
+// 陷阱卡片與交叉表
+$("errCards").innerHTML=TRS.map(t=>{
+  const arr=ITEMS.filter(it=>it[6]===t), ex=arr.slice(-1)[0];
+  return `<div class="trap"><div class="top"><h3>${TR[t].name}</h3><span>${arr.length} 題</span></div><p>${TR[t].tip}</p>${ex?`<a href="${exLink(ex)}">例：${EXAM[ex[0]]} ${ex[1]} 年 ${esc(noOf(ex))}　${esc(ex[3])}</a>`:""}<a href="${bank("#tr="+t)}">看全部 →</a><a href="practice/#tr=${t}">練這種陷阱 10 題 →</a></div>`;
+}).join("");
+const xmax=Math.max(...PS.flatMap(s=>TRS.map(t=>ITEMS.filter(it=>it[5]===s&&it[6]===t).length)));
+$("xHead").innerHTML=`<tr><th>能力</th>${TRS.map(t=>`<th class="n">${TR[t].name}</th>`).join("")}</tr>`;
+$("xBody").innerHTML=PS.map(s=>`<tr><td><span class="lv"><i style="background:${skColor(s)}"></i>${SK[s].name}</span></td>${TRS.map(t=>{const v=ITEMS.filter(it=>it[5]===s&&it[6]===t).length;return `<td class="h" style="background:color-mix(in srgb, var(--accent) ${Math.round(v/xmax*60)}%, transparent)">${v?`<a href="${bank(`#sk=${s}&tr=${t}`)}" style="color:inherit">${v}</a>`:""}</td>`;}).join("")}</tr>`).join("");
+</script>
+</body></html>

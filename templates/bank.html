@@ -1,0 +1,159 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>自然判讀題庫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+{{reading_css}}
+.ctl{display:grid;gap:12px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.row{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.row>label,.grp-lab{font-size:13px;color:var(--ink-3);min-width:3em}
+#kw{flex:1;min-width:0;font:inherit;font-size:15.5px;padding:8px 12px;border:1.5px solid var(--rule);border-radius:6px;background:var(--paper);color:var(--ink)}
+#kw:focus{outline:none;border-color:var(--ink)}
+select{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--rule);border-radius:5px;background:var(--paper);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.fchip{font:inherit;font-size:13px;padding:3px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);color:var(--ink-2);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.fchip i{width:8px;height:8px;border-radius:2px}
+.fchip .n{color:var(--ink-3);font-variant-numeric:tabular-nums}
+.fchip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);font-weight:700;background:var(--surface)}
+.fchip:disabled{opacity:.4;cursor:default}
+.status{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:14px;color:var(--ink-2)}
+.status button{font:inherit;font-size:13px;background:none;border:0;color:var(--focus);cursor:pointer;padding:0;text-decoration:underline}
+.tog{font-size:13.5px;color:var(--ink-2);display:inline-flex;gap:6px;align-items:center}
+.list{display:grid;gap:10px}
+.q{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:6px;padding:12px 14px;display:grid;gap:8px}
+.q.hit{box-shadow:0 0 0 2px var(--accent)}
+.q .top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.q .no{font-weight:700;font-variant-numeric:tabular-nums}
+.q .lab{color:var(--ink-2)}
+.q .ans{margin-left:auto;font-size:13px;color:var(--ink-3)}
+.q .ans b{color:var(--ink)}
+.hint{font-size:15px;padding:8px 12px;border-radius:5px;background:var(--rule-2)}
+.hint::before{content:"判讀提示　";font-size:12.5px;font-weight:700;color:var(--accent)}
+.q .foot{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13.5px}
+.q details summary{cursor:pointer;color:var(--ink-3);font-size:13.5px}
+.q details p{font-size:14px;color:var(--ink-2);padding-top:6px;overflow-wrap:anywhere}
+.hide-ans .ans b{filter:blur(5px)}
+.hide-ans .hint{display:none}
+.hide-ans .q .reveal{display:inline}
+.q .reveal{display:none;font:inherit;font-size:13px;background:none;border:1px solid var(--rule);border-radius:4px;padding:1px 8px;color:var(--ink-2);cursor:pointer}
+.q.shown .ans b{filter:none}
+.q.shown .hint{display:block}
+.q.shown .reveal{display:none}
+mark{background:var(--mark);color:inherit;padding:0 1px;border-radius:2px}
+.more{justify-self:start;font:inherit;font-size:14px;padding:6px 14px;border:1.5px solid var(--ink);border-radius:5px;background:transparent;color:var(--ink);cursor:pointer}
+.sumbar{display:flex;height:10px;border-radius:3px;overflow:hidden;background:var(--rule-2);flex:1;min-width:160px}
+.sumbar span{display:block}
+@media (max-width:640px){.q .ans{margin-left:0}.grp-lab{flex-basis:100%}.fchip{font-size:12.5px}}
+</style>
+</head><body>
+<div class="wrap">
+<a class="back" href="../">← 回自然素養總覽</a>　<a class="back" href="../practice/">隨機練習 10 題 →</a>
+<header class="top">
+  <div class="eyebrow">會考自然 111–115 · 學測自然 107–115 · 分科物理、化學、生物 107–115</div>
+  <h1>自然判讀題庫</h1>
+  <p class="lede">1,753 題逐題標記素養能力、資料類型、常見陷阱與判讀提示。可以依科目、能力、資料類型或陷阱篩選；開啟「先作答再看提示」可以把答案與提示遮起來自我練習。題目的圖表、裝置圖與數學式請點「看原題」看試卷圖片。</p>
+</header>
+
+<section>
+  <div class="ctl" role="search">
+    <div class="row"><input id="kw" type="search" placeholder="搜尋考點或提示，例如：電磁感應" aria-label="搜尋關鍵字" autocomplete="off"></div>
+    <div class="row">
+      <label for="ex">考試</label><select id="ex"><option value="">全部</option><option value="0">會考自然</option><option value="1">學測自然</option><option value="2">分科測驗</option></select>
+      <label for="sb">科目</label><select id="sb"><option value="">全部</option><option value="P">物理</option><option value="C">化學</option><option value="B">生物</option><option value="E">地球科學</option></select>
+      <label for="yr">年度</label><select id="yr"><option value="">全部</option></select>
+      <label class="tog"><input type="checkbox" id="hide"> 先作答再看提示</label>
+    </div>
+    <div class="row"><span class="grp-lab">能力</span><div class="chips" id="skChips" role="group" aria-label="依能力篩選"></div></div>
+    <div class="row"><span class="grp-lab">資料</span><div class="chips" id="stChips" role="group" aria-label="依資料類型篩選"></div></div>
+    <div class="row"><span class="grp-lab">陷阱</span><div class="chips" id="trChips" role="group" aria-label="依常見陷阱篩選"></div></div>
+  </div>
+  <div class="status" id="status" aria-live="polite"></div>
+  <div class="list" id="list"></div>
+</section>
+</div>
+
+<script>
+{{reading_js}}
+const ITEMS={{reading}};
+ITEMS.forEach(it=>it.hay=(it[2]+" "+it[3]+" "+it[7]+" "+it[8]+" "+SK[it[5]].name+" "+ST[it[9]].name+" "+TR[it[6]].name+" "+SUB[it[12]].name).toLowerCase());
+const $=id=>document.getElementById(id);
+const st={ex:"",yr:"",sb:"",sk:new Set(),stg:new Set(),tr:new Set(),kw:"",q:null};
+const DIM=[["sk",5,"skChips",()=>Object.keys(SK),k=>`<i style="background:${skColor(k)}"></i>${k} ${SK[k].name}`,k=>SK[k].desc],
+           ["stg",9,"stChips",()=>STS,k=>`${ST[k].name}`,k=>ST[k].tip],
+           ["tr",6,"trChips",()=>TRS.concat("T0"),k=>TR[k].name,k=>TR[k].tip]];
+let LIMIT=40;
+
+function readHash(){
+  const p=new URLSearchParams(location.hash.slice(1));
+  st.ex=p.get("ex")||""; st.yr=p.get("y")||""; st.sb=p.get("sb")||""; st.kw=p.get("kw")||"";
+  st.sk=new Set((p.get("sk")||"").split(",").filter(s=>SK[s]));
+  st.stg=new Set((p.get("st")||"").split(",").filter(s=>ST[s]));
+  st.tr=new Set((p.get("tr")||"").split(",").filter(s=>TR[s]));
+  st.q=p.get("q");
+  if(st.q){const it=ITEMS.find(it=>qid(it)===st.q); if(it){st.ex=String(it[0]); st.yr=String(it[1]);}}
+  $("ex").value=st.ex; $("sb").value=st.sb; $("kw").value=st.kw; fillYears(); $("yr").value=st.yr;
+}
+function writeHash(){
+  if(st.q){history.replaceState(null,"","#q="+st.q);return;}
+  const p=new URLSearchParams();
+  if(st.ex) p.set("ex",st.ex); if(st.yr) p.set("y",st.yr); if(st.sb) p.set("sb",st.sb); if(st.kw) p.set("kw",st.kw);
+  if(st.sk.size) p.set("sk",[...st.sk].join(",")); if(st.stg.size) p.set("st",[...st.stg].join(",")); if(st.tr.size) p.set("tr",[...st.tr].join(","));
+  history.replaceState(null,"",p.toString()?"#"+p.toString().replace(/%2C/g,","):location.pathname);
+}
+function fillYears(){
+  const ys=[...new Set(ITEMS.filter(it=>st.ex===""||String(it[0])===st.ex).map(it=>it[1]))].sort((a,b)=>b-a);
+  $("yr").innerHTML=`<option value="">全部</option>`+ys.map(y=>`<option value="${y}">${y} 年</option>`).join("");
+  if(!ys.includes(+st.yr)) st.yr="";
+  $("yr").value=st.yr;
+}
+const base=()=>{const ts=st.kw.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return ITEMS.filter(it=>(st.ex===""||String(it[0])===st.ex)&&(st.yr===""||String(it[1])===st.yr)&&(st.sb===""||it[12]===st.sb)&&ts.every(t=>it.hay.includes(t)));};
+const pass=(it,skip)=>DIM.every(([k,col])=>k===skip||!st[k].size||st[k].has(it[col]));
+function hl(s){let out=esc(s);st.kw.trim().split(/\s+/).filter(Boolean).forEach(t=>{const re=new RegExp(esc(t).replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"gi");out=out.replace(re,m=>`<mark>${m}</mark>`);});return out;}
+function chips(){
+  const b=base();
+  DIM.forEach(([k,col,el,keys,label,tip])=>{
+    const bs=b.filter(it=>pass(it,k));
+    $(el).innerHTML=keys().map(c=>{const n=bs.filter(it=>it[col]===c).length;
+      return `<button type="button" class="fchip" data-d="${k}" data-k="${c}" aria-pressed="${st[k].has(c)}" ${n||st[k].has(c)?"":"disabled"} title="${esc(tip(c))}">${label(c)}<span class="n">${n}</span></button>`;}).join("");
+  });
+  document.querySelectorAll("[data-d]").forEach(el=>el.onclick=()=>{const S=st[el.dataset.d],c=el.dataset.k;S.has(c)?S.delete(c):S.add(c);st.q=null;LIMIT=40;run();});
+}
+function card(it){
+  const id=qid(it), hit=st.q===id;
+  return `<article class="q${hit?" hit":""}" id="q-${id}" style="--c:${skColor(it[5])}">
+  <div class="top"><span class="no">${EXAM[it[0]]} ${it[1]}・${/^\d/.test(it[2])?"第 "+esc(it[2])+" 題":esc(it[2])}</span><span class="lab">${hl(it[3])}</span>
+  <span class="chip">${SUB[it[12]].name}</span><span class="chip sk" style="background:${skSoft(it[5])};color:${skColor(it[5])}">${SK[it[5]].name}</span><span class="chip">${ST[it[9]].name}</span>${it[6]!=="T0"?`<span class="chip tr">${TR[it[6]].name}</span>`:""}
+  <span class="ans">答案 <b>${esc(it[4])}</b></span></div>
+  <div class="hint">${hl(it[7])}</div>
+  <div class="foot"><button type="button" class="reveal">看答案與提示</button><a href="${srcLink(it)}">看原題（含題目圖片）→</a></div>
+  ${it[8]?`<details${hit?" open":""}><summary>題目文字（圖表與數學式請看原題）</summary><p>${hl(it[8])}${it[8].length>=240?"…":""}</p></details>`:""}
+  </article>`;
+}
+function run(){
+  st.ex=$("ex").value; st.yr=$("yr").value; st.sb=$("sb").value; st.kw=$("kw").value;
+  writeHash(); chips();
+  const arr=base().filter(it=>pass(it));
+  let shown=arr.slice(0,LIMIT);
+  if(st.q){const i=arr.findIndex(it=>qid(it)===st.q); if(i>=LIMIT) shown=arr.slice(0,i+1);}
+  const c={};arr.forEach(it=>{c[it[5]]=(c[it[5]]||0)+1;});
+  const any=st.ex||st.yr||st.sb||st.kw||st.sk.size||st.stg.size||st.tr.size;
+  $("status").innerHTML=`<span>共 <b>${arr.length}</b> 題</span>${arr.length?`<span class="sumbar" role="img" aria-label="能力分布">${Object.keys(SK).map(s=>c[s]?`<span title="${SK[s].name} ${c[s]} 題" style="width:${c[s]/arr.length*100}%;background:${skColor(s)}"></span>`:"").join("")}</span>`:""}${any?`<button type="button" id="clr">清除篩選</button>`:""}`;
+  const clr=$("clr"); if(clr) clr.onclick=()=>{st.ex=st.yr=st.sb=st.kw="";st.sk.clear();st.stg.clear();st.tr.clear();st.q=null;$("ex").value="";$("sb").value="";$("kw").value="";fillYears();LIMIT=40;run();};
+  $("list").innerHTML=shown.map(card).join("")+(arr.length>shown.length?`<button type="button" class="more" id="more">再顯示 ${Math.min(40,arr.length-shown.length)} 題（共 ${arr.length} 題）</button>`:"")+(arr.length?"":`<p class="note">沒有符合的題目，試試減少篩選條件。</p>`);
+  const m=$("more"); if(m) m.onclick=()=>{LIMIT+=40;run();};
+  document.querySelectorAll(".q .reveal").forEach(b=>b.onclick=()=>b.closest(".q").classList.add("shown"));
+  if(st.q){const el=document.getElementById("q-"+st.q); if(el){el.classList.add("shown"); setTimeout(()=>el.scrollIntoView({block:"center"}),350);}}
+}
+function setHide(on){document.body.classList.toggle("hide-ans",on); try{localStorage.setItem("scl-hide",on?"1":"");}catch(e){}}
+try{ $("hide").checked=!!localStorage.getItem("scl-hide"); }catch(e){}
+setHide($("hide").checked);
+$("hide").onchange=()=>setHide($("hide").checked);
+$("ex").onchange=()=>{st.ex=$("ex").value;fillYears();st.q=null;LIMIT=40;run();};
+$("yr").onchange=$("sb").onchange=()=>{st.q=null;LIMIT=40;run();};
+let t; $("kw").oninput=()=>{clearTimeout(t);t=setTimeout(()=>{st.q=null;LIMIT=40;run();},200);};
+addEventListener("hashchange",()=>{readHash();LIMIT=40;run();});
+readHash(); run();
+</script>
+</body></html>
